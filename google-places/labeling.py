@@ -3,8 +3,7 @@
 from tinydb import TinyDB
 import pandas as pd
 
-db = TinyDB('reviews.json')
-
+db = TinyDB('data/reviews.json')
 
 # function designed to assign labels to each review
 # for now we are only taking the overall rating which
@@ -27,4 +26,4 @@ for i in xrange(1, len(db)):
     rows.append((content, label))
 
 df = pd.DataFrame(rows, columns=['content', 'label'])
-df.to_csv('data.csv', index=False)
+df.to_csv('data/reviews.csv', index=False)

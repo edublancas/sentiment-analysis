@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# download places data
+python google-places/places.py
+
+# get reviews for every place you got
+python google-places/reviews.py
+
+# create csv file from reviews data
+python google-places/labeling.py

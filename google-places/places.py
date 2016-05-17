@@ -5,23 +5,30 @@ import json
 from tinydb import TinyDB
 
 # Load key from yaml file
-with open('config.yaml', 'r') as f:
+with open('key.yaml', 'r') as f:
     key = yaml.load(f.read())['google-key']
+
+# load configuration parameters
+with open('config.yaml', 'r') as f:
+    config = yaml.load(f.read())
 
 # Google maps API template
 url_template = ('https://maps.googleapis.com/maps/api/place/radarsearch/json'
                 '?key={key}&location={location}&radius={radius}&types={types}')
 
-# Parameters to be included in the request
-params = {'location': '19.4154733,-99.1296775',
-          'key': key,
-          'radius': '50000',
-          'types': 'food'}
+db = TinyDB('data/places.json')
 
-# Make the request
-res = requests.get(url_template.format(**params))
-places = json.loads(res.content)['results']
+# generate a request for every type of place
+for a_type in config['types'].split('|'):
+    # Parameters to be included in the request
+    params = {'location': config['location'],
+              'key': key,
+              'radius': config['radius'],
+              'types': a_type}
+    
+    # Make the request
+    res = requests.get(url_template.format(**params))
+    places = json.loads(res.content)['results']
 
-# Save results in a json file
-db = TinyDB('places.json')
-db.insert_multiple(places)
+    # Save results in a json file
+    db.insert_multiple(places)

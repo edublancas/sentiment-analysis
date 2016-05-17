@@ -1,0 +1,14 @@
+#https://developers.google.com/places/web-service/search#PlaceSearchRequests
+language: es
+radius: 50000
+location: '19.4154733,-99.1296775'
+types: 'airport|amusement_park|aquarium|art_gallery|bakery|bank|bar
+|beauty_salon|cafe|car_dealer|car_rental|car_repair|car_wash|city_hall
+|clothing_store|convenience_store|department_store|doctor|electronics_store
+|finance|food|furniture_store|grocery_or_supermarket|gym|hair_care
+|hardware_store|health|home_goods_store|hospital|insurance_agency|jewelry_store
+|laundry|lawyer|library|liquor_store|local_government_office|movie_theater
+|moving_company|museum|night_club|park|parking|pet_store|pharmacy|plumber
+|police|post_office|real_estate_agency|restaurant|roofing_contractor
+|school|shoe_store|shopping_mall|spa|stadium|storage|storetravel_agency
+|veterinary_care'

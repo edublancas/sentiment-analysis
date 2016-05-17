@@ -1,3 +1,2 @@
-google-places/config.yaml
-google-places/*.json
-google-places/*.csv
+google-places/key.yaml
+google-places/data/*
